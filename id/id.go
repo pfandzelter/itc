@@ -116,6 +116,10 @@ func (i *ID) Sum(i1, i2 *ID) *ID {
 }
 
 func (i *ID) Pack(p *bit.Pack) {
+	if i == nil {
+		return
+	}
+
 	if i.IsLeaf {
 		p.Push(zero, two)
 		p.Push(i.Value, one)
