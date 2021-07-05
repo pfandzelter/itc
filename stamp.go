@@ -26,6 +26,11 @@ func NewStamp() *Stamp {
 	return &Stamp{event: event.New(), id: id.New()}
 }
 
+// NewPeek creates a new Peek-Stamp with a null ID.
+func NewPeek() *Stamp {
+	return &Stamp{event: event.New(), id: id.Null()}
+}
+
 // Event adds a new event to the clock's event component, so that if (i, e') results from event((i, e))
 // the causal ordering is such that e < e'.
 func (s *Stamp) Event() {
@@ -56,8 +61,7 @@ func (s *Stamp) Fork() *Stamp {
 // Peek is a special case of Fork that clones the causal past of a stamp, with
 // the new stamp having ID null without modifying the original stamps ID space.
 func (s *Stamp) Peek() *Stamp {
-	st := NewStamp()
-	st.id = nil
+	st := NewPeek()
 	st.event = s.event.Clone()
 	return st
 }

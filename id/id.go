@@ -24,6 +24,10 @@ func New() *ID {
 	return NewWithValue(one)
 }
 
+func Null() *ID {
+	return NewWithValue(zero)
+}
+
 func NewWithValue(value uint32) *ID {
 	return &ID{Value: value, IsLeaf: true}
 }
@@ -116,10 +120,6 @@ func (i *ID) Sum(i1, i2 *ID) *ID {
 }
 
 func (i *ID) Pack(p *bit.Pack) {
-	if i == nil {
-		return
-	}
-
 	if i.IsLeaf {
 		p.Push(zero, two)
 		p.Push(i.Value, one)
