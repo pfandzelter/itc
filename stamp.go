@@ -9,9 +9,9 @@ package itc
 
 import (
 	"fmt"
-	"github.com/fgrid/itc/bit"
-	"github.com/fgrid/itc/event"
-	"github.com/fgrid/itc/id"
+	"github.com/pfandzelter/itc/bit"
+	"github.com/pfandzelter/itc/event"
+	"github.com/pfandzelter/itc/id"
 )
 
 // Stamp declares the state of the clock for a given identity and a given stream of events.

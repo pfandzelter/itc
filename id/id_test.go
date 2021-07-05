@@ -2,7 +2,7 @@ package id
 
 import (
 	"fmt"
-	"github.com/fgrid/itc/bit"
+	"github.com/pfandzelter/itc/bit"
 	"testing"
 )
 

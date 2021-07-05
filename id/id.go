@@ -2,8 +2,9 @@ package id
 
 import (
 	"fmt"
-	"github.com/fgrid/itc/bit"
 	"log"
+
+	"github.com/pfandzelter/itc/bit"
 )
 
 type ID struct {
