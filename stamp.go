@@ -9,6 +9,7 @@ package itc
 
 import (
 	"fmt"
+
 	"github.com/pfandzelter/itc/bit"
 	"github.com/pfandzelter/itc/event"
 	"github.com/pfandzelter/itc/id"
@@ -48,6 +49,15 @@ func (s *Stamp) Fork() *Stamp {
 	id1, id2 := s.id.Split()
 	s.id = id1
 	st.id = id2
+	st.event = s.event.Clone()
+	return st
+}
+
+// Peek is a special case of Fork that clones the causal past of a stamp, with
+// the new stamp having ID null without modifying the original stamps ID space.
+func (s *Stamp) Peek() *Stamp {
+	st := NewStamp()
+	st.id = nil
 	st.event = s.event.Clone()
 	return st
 }
